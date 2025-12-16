@@ -1,0 +1,27 @@
+{
+  "name": "projeto",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\"> DevLinks </h1>",
+  "homepage": "https://github.com/jeancsla/projeto#readme",
+  "bugs": {
+    "url": "https://github.com/jeancsla/projeto/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeancsla/projeto.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "main": "script.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
