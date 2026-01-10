@@ -21,10 +21,11 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watchAll"
   },
   "dependencies": {
     "next": "^16.1.1",
+    "pg": "^8.16.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
