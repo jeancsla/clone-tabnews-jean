@@ -1,6 +1,7 @@
 import migrationRunner from "node-pg-migrate";
 import { join } from "node:path";
 import database from "infra/database.js";
+import { threadCpuUsage } from "node:process";
 
 export default async function migrations(request, response) {
   const dbClient = await database.getNewClient();
@@ -32,5 +33,25 @@ export default async function migrations(request, response) {
     return response.status(200).json(migratedMigrations);
   }
 
-  return response.status(405).end();
+  if (request.method === "DELETE") {
+    const migratedMigrations = await migrationRunner({
+      ...defaultMigrationOptions,
+      dryRun: false,
+    });
+
+    await dbClient.end();
+
+    if (migratedMigrations.length > 0) {
+      return response.status(201).json(migratedMigrations);
+    }
+    return response.status(200).json(migratedMigrations);
+  }
+
+  try {
+    await dbClient.end();
+  } catch (error) {
+    console.error(error);
+  } finally {
+    return response.status(405).end();
+  }
 }
