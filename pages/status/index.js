@@ -41,10 +41,12 @@ function StatusInfo() {
         <strong>Versão:</strong> {data.dependencies.database.version}
       </div>
       <div>
-        <strong>Conexões Máximas:</strong> {data.dependencies.database.max_connections}
+        <strong>Conexões Máximas:</strong>{" "}
+        {data.dependencies.database.max_connections}
       </div>
       <div>
-        <strong>Conexões Abertas:</strong> {data.dependencies.database.opened_connections}
+        <strong>Conexões Abertas:</strong>{" "}
+        {data.dependencies.database.opened_connections}
       </div>
     </div>
   );
