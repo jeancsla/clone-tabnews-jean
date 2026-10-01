@@ -2,9 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": {
-      "*": false,
+      "**": false,
       "main": true,
       "preview": true
     }
-  }
+  },
+  "ignoreCommand": "case \"$VERCEL_GIT_COMMIT_REF\" in main|preview) ;; *) exit 0;; esac; git diff --quiet \"${VERCEL_GIT_PREVIOUS_SHA:-HEAD^}\" HEAD -- . \":(exclude,glob)*.md\" \":!docs/\" \":!.github/\""
 }
